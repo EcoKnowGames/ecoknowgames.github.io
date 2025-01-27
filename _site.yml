@@ -1,0 +1,21 @@
+name: "Ecological Knowledge Games"
+output_dir: "docs"
+navbar:
+  left:
+    - text: "About"
+      href: index.html
+    - text: "News"
+      href: news.html
+    - text: "People"
+      href: people.html
+    - text: "Contact"
+      href: Contact.html
+    - text: "GitHub"
+      href: https://github.com/ecoknowgames
+output:
+  html_document:
+    theme: cosmo
+    toc: no
+    toc_float:
+      collapsed: true
+    css: style.css
