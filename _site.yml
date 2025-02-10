@@ -9,7 +9,7 @@ navbar:
     - text: "People"
       href: people.html
     - text: "Contact"
-      href: Contact.html
+      href: contact.html
     - text: "GitHub"
       href: https://github.com/ecoknowgames
 output:

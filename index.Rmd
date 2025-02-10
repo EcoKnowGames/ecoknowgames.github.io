@@ -1,9 +1,29 @@
 ---
-title: "My Website"
+title: "Ecological Knowledge Games"
 ---
 
-Hello, Website!
+**The Ecological Knowledge Games (EcoKnowGames) project is an inter-disciplinary research programme leveraging the technology of video games to evaluate sustainable development solutions and share diverse views on human development.**
 
-For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
 
-Please also note that simple R Markdown sites are _not_ based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+::: {}
+
+How humans collectively respond to environmental change will ultimately determine the degree to which many global challenges of the 21st century are successfully met. Global challenges are reflected across multiple United Nations Sustainable Development Goals (SDGs), including conserving biodiversity, ensuring food and water security, and responding to climate change. Finding effective SDG solutions is critical but often hindered by the undesirable risk, high cost, and long timescale of their implementation. The EcoKnowGames project develops virtual game worlds to address challenges for sustainable development. 
+
+:::
+
+::: {}
+
+
+![](img/logo_inverted.png)
+
+
+:::
+
+::::
+
+
+EcoKnowGames is funded by the UK Research and Innovation (UKRI) cross research council responsive mode [pilot scheme](https://www.ukri.org/news/first-projects-from-ukris-new-interdisciplinary-scheme-announced/) (MR/Z505833/1). The core team includes [people](#people.html) from the [University of Stirling](https://www.stir.ac.uk/), the [James Hutton Institute](https://www.hutton.ac.uk/), and [King's College London](https://www.kcl.ac.uk/), with the project partner [Marist College](https://www.marist.edu/). Game development is in collaboration with the award-winning games studio [Glitchers](https://www.glitchers.com/).
+
+
+

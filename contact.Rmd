@@ -1,0 +1,33 @@
+---
+title: "Contact the EcoKnowGames project"
+---
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
+
+::: {}
+
+**Project Leader:** 
+Brad Duthie (he/him)
+Lecturer in Environmental Modelling
+Biological and Environmental Sciences
+3A149 Cottrell Building
+University of Stirling
+Stirling, FK9 4LA
+
+**Email:** alexander.duthie@stir.ac.uk
+
+**GitHub:** [https://github.com/bradduthie](https://github.com/bradduthie)
+
+**Mastodon:** [https://ecoevo.social/@bradduthie](https://ecoevo.social/@bradduthie)
+
+:::
+
+::: {}
+
+
+![](img/logo_inverted.png)
+
+
+:::
+
+::::
