@@ -11,46 +11,27 @@ body {
 text-align: justify}
 </style>
 
-:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
 
-::: {}
+<center>
+
+![](img/self.png)
+
+</center>
 
 **[Brad Duthie](http://bradduthie.github.io/)** (PL; he/him) is an evolutionary ecologist, ecological modeller, and biostatistician with broad interests in developing theory across the biological and environmental sciences. Brad is interested in the integration of knowledge games with social-ecological models. He built and maintains the GMSE (ConFooBio project) and resevol (ENDORSE project) R packages for social-ecological modelling and has published several papers using knowledge games to address questions on conservation and sustainable development.
 
 Mastodon: [@bradduthie@ecoevo.social](https://ecoevo.social/@bradduthie)
 
-:::
-
-::: {}
-
-
-![](img/self.png)
-
-
-:::
-
-::::
 
 <hr>
 
-
-:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
-
-::: {}
-
-**Theodor Cimpeanu** (PDRA; he/him) is a Computer Scientist with a background in evolutionary game theory, computational social science and complex networks. Ted has worked extensively to build heuristics for better institutions and to mitigate risks in existential risks such as AI safety, but is now turning his interests towards conservation and the biology side of evolutionary biology. He hopes to explore and beautifully visualise game data, as well as simulate real player outcomes through mathematical models.
-
-:::
-
-::: {}
-
+<center>
 
 ![](img/ted.jpg)
 
+</center>
 
-:::
-
-::::
+**Theodor Cimpeanu** (PDRA; he/him) is a Computer Scientist with a background in evolutionary game theory, computational social science and complex networks. Ted has worked extensively to build heuristics for better institutions and to mitigate risks in existential risks such as AI safety, but is now turning his interests towards conservation and the biology side of evolutionary biology. He hopes to explore and beautifully visualise game data, as well as simulate real player outcomes through mathematical models.
 
 <hr>
 
