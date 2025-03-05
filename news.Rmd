@@ -2,4 +2,11 @@
 title: "EcoKnowGames news"
 ---
 
-More about this website.
+1 March 2025
+-----------------------------------
+
+The EcoKnowGames project enters its third month. In January, we held a kick-off meeting at the University of Stirling, and in February we welcomed postdoctoral researchers Ted Cimpeanu and Marly Samuel to the university and the research team. A [GitHub organisation](https://github.com/ecoknowgames) has been set up, which will hold code for project outputs.
+
+
+
+
