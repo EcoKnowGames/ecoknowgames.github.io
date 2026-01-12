@@ -373,6 +373,15 @@ you are ready to get started in Unity.</p>
 </div>
 <div id="how-to-use-the-ecoknowgames-creator" class="section level1">
 <h1>2. How to use the EcoKnowGames creator</h1>
+<p>This is the longest step, and it is explained in writing below. You
+can also watch the video immediately below to see the full work flow of
+creating a game.</p>
+<p>[![Video guide to using EcoKnowGame software to make a game for
+research] (<a
+href="https://img.youtube.com/vi/IcMJZeZKJ6E/maxresdefault.jpg"
+class="uri">https://img.youtube.com/vi/IcMJZeZKJ6E/maxresdefault.jpg</a>)]
+(<a href="https://www.youtube.com/watch?v=IcMJZeZKJ6E"
+class="uri">https://www.youtube.com/watch?v=IcMJZeZKJ6E</a>)</p>
 <p>To get started, you need to open Unity. When you first open unity,
 you will be asked to create an account. Once you create an account, you
 can sign into Unity Hub. After agreeing to the Unity licence, Unity
@@ -702,10 +711,120 @@ your Resources &gt; Scenarios files in Unity. Figure 7 shows an uploaded
 JSON file ‘New Scenario.json’ highlighted.</p>
 <hr />
 <div class="float">
-<img src="img/new_scenario.png" alt="Figure 7:" />
-<div class="figcaption">Figure 7:</div>
+<img src="img/new_scenario.png"
+alt="Figure 7: EcoKnowGames Scenarios saved as JSON files and shown in the bottom panel of Unity with a ‘New Scenario’ highlighted." />
+<div class="figcaption">Figure 7: EcoKnowGames Scenarios saved as JSON
+files and shown in the bottom panel of Unity with a ‘New Scenario’
+highlighted.</div>
+</div>
+<hr />
+<p>Finally, you need to add the new scenario that you just made to the
+SO_Scenario Config List. Click on the blue cube and orange bracket icon
+called ‘SO_Scenari…’ shown in Figure 7. In the right panel of Unity, a
+list called ‘Scenario Assets’ will become visible. These are different
+game scenarios (or game levels, if you prefer) that will be deployed in
+your game. To include the new scenario that you just made, click on the
+plus sign in the lower right (Figure 8). A new element will be added.
+Click the circle symbol on the far right of this new element, then
+select the new scenario JSON file that you just added to the Scenario
+list in Figure 7.</p>
+<hr />
+<div class="float">
+<img src="img/SO_Scenario.png"
+alt="Figure 8: Panel in the right of Unity showing scenarios available (i.e., levels to play) in an EcoKnowGames game. The three elements shown in Scenario Assets will become levels to a deployed game: Exploding Rabbit Population, Grasslands, and New Scenario. Scenarios can be added or removed with the plus and minus buttons in the lower right." />
+<div class="figcaption">Figure 8: Panel in the right of Unity showing
+scenarios available (i.e., levels to play) in an EcoKnowGames game. The
+three elements shown in Scenario Assets will become levels to a deployed
+game: Exploding Rabbit Population, Grasslands, and New Scenario.
+Scenarios can be added or removed with the plus and minus buttons in the
+lower right.</div>
+</div>
+<hr />
+<p>The game can now be previewed by clicking the play button in the top
+centre of Unity. Do not worry if the text is a bit blurry at this point,
+but you should be able to click through the game to double-check that
+nothing obvious is wrong. In practice, making a game will involve some
+trial and error, and some debugging, but if you have reached this point,
+then you should be nearly past the initial barrier to entry. The next
+step is to build and run the game.</p>
 </div>
 </div>
+<div id="how-to-deploy-a-game" class="section level1">
+<h1>3. How to deploy a game</h1>
+<p>Games can be deployed across a broad range of platforms, including
+Windows, macOS, Linux, and online within a browser. To see your build
+options in Unity, navigate to File &gt; Build Profiles. This will pull
+up a list of platforms for building games (Figure 9).</p>
+<hr />
+<div class="float">
+<img src="img/build_platforms.png"
+alt="Figure 9: Unity list of build platforms for deploying an EcoKnowGame game. In the below, games can be built for Linux, Linux Server, iOS, and the Web. Options not currently available (and needing to be installed) include macOS, Windows, Windows Server, macOS Server, Android, tvOS, and visionOS." />
+<div class="figcaption">Figure 9: Unity list of build platforms for
+deploying an EcoKnowGame game. In the below, games can be built for
+Linux, Linux Server, iOS, and the Web. Options not currently available
+(and needing to be installed) include macOS, Windows, Windows Server,
+macOS Server, Android, tvOS, and visionOS.</div>
+</div>
+<hr />
+<p>If you want to build to a platform that is greyed out in the list,
+then you will need to install the relevant module first. For example, in
+Figure 9, the Windows option is greyed out, indicating that the module
+for building games for Windows is not installed. Clicking the Windows
+icon in the left panel brings up the option to install a Windows module
+in Unity.</p>
+<p>The build option that you choose will depend on your goals for the
+game. Using the Web platform allows you to put your game on a website
+for anyone to play, but for now there is no way to collect data
+remotely. Here are some examples of games built with the Web
+platform:</p>
+<blockquote>
+<p><a href="https://ecoknowgames.github.io/examples/"
+class="uri">https://ecoknowgames.github.io/examples/</a></p>
+</blockquote>
+<p>To put your own game online, choose the Web platform build profile,
+then click the ‘Build and Run’ button in the upper right. A box will pop
+up for you to save the game. When you click ‘save’, a new folder will be
+created with whatever name you saved as, and your game should open in a
+browser automatically when the build is complete. If you look in your
+new folder, then you will see the two subfolders ‘Build’ and
+‘TemplateData’, and the file ‘index.html’, which is the web page where
+your game can be played. If you host these folders and index HTML file
+online, then your game will be available to anyone with a link. For
+example, the examples link above is hosted in GitHub in this
+repository:</p>
+<blockquote>
+<p><a href="https://github.com/EcoKnowGames/examples"
+class="uri">https://github.com/EcoKnowGames/examples</a></p>
+</blockquote>
+<p>It is easy to host GitHub using <a
+href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub
+pages</a>. This is where games put out by the EcoKnowGames project are
+hosted, but they can be hosted elsewhere too, and the index page can be
+modified to include some text or images around the game interface.</p>
+<p>If your intention is to collect game data, then you will want to
+build to a desktop (Windows, macOS, or Linux) or tablet (Android or
+iOS). The game files will then be made for these platforms, and players
+will be able to play the game by running the executable file created by
+Unity. Players will not need to have Unity installed on their device to
+play; just the game output files needed.</p>
+</div>
+<div id="how-to-collect-in-game-data" class="section level1">
+<h1>4. How to collect in-game data</h1>
+<p>Data must be actively saved at the end of a game. At the end of the
+game, a box will pop up summarising win conditions and the player’s game
+score. At the bottom of this box, there is an option to visualise a
+graph of the total entity numbers over rounds, and to export the results
+(Figure 10).</p>
+<hr />
+<div class="float">
+<img src="img/export_results.png"
+alt="Figure 10: Menu options at the end of an EcoKnowGames game, which include an option for visualising the game results on the left, an option to export the results as a JSON file, and options to replay the game or return to the main menu." />
+<div class="figcaption">Figure 10: Menu options at the end of an
+EcoKnowGames game, which include an option for visualising the game
+results on the left, an option to export the results as a JSON file, and
+options to replay the game or return to the main menu.</div>
+</div>
+<hr />
 </div>
 
 
