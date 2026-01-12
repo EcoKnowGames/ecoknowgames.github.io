@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>How to build a game</title>
+
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About</a>
+</li>
+<li>
+  <a href="news.html">News</a>
+</li>
+<li>
+  <a href="people.html">People</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+<li>
+  <a href="https://github.com/ecoknowgames">GitHub</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">How to build a game</h1>
+
+</div>
+
+
+<p>This document is intended to help you build a game using the <a
+href="https://github.com/EcoKnowGames/creator">EcoKnowGames creator</a>
+tool. The creator uses the <a href="https://unity.com/download">Unity
+Game Engine</a> to build games that integrate scientific models and
+collect data on in-game environments and game player decisions. Building
+these games does not require a high level of technical skill. There is
+no coding involved, and while it is useful to understand the scientific
+models underlying game mechanics, these models are well-established and
+numerical details can be sourced from the scientific literature or
+pre-set examples. All of the required software is free. The real barrier
+to getting started is knowing (1) what to download and install, (2) how
+to use the EcoKnowGames creator in Unity, (3) how to deploy a game, and
+(4) how to collect in-game data. This document will get you started and
+help you establish a work flow for building ecological knowledge games.
+Once you are comfortable with this work flow, you should be able to
+create and deploy any number of turn-based games with unique interacting
+entities, game rules, and landscapes.</p>
+<p>If you get stuck while working through this how-to, please let us
+know in the <a
+href="https://github.com/orgs/EcoKnowGames/discussions">EcoKnowGame
+Discussion</a> or contact the <a
+href="https://ecoknowgames.github.io/contact.html">Project Leader</a>.
+The <a href="https://ecoknowgames.github.io/index.html">EcoKnowGames
+project</a> is a highly interdisciplinary research programme, and a key
+objective of it is to make knowledge game development accessible for
+researchers with as few technical hurdles as possible.</p>
+<hr />
+<div id="downloading-and-installing" class="section level1">
+<h1>1. Downloading and installing</h1>
+<p>To build a game, you need to install git version control software,
+the <a href="https://unity.com/download">Unity Game Engine</a>, and the
+<a href="https://github.com/EcoKnowGames/creator">EcoKnowGames
+creator</a> tool that works within Unity. Both Unity and the
+EcoKnowGames creator are free and work across Windows, MacOS, and Linux.
+We recommend downloading Unity first.</p>
+<div id="downloading-unity" class="section level2">
+<h2>Downloading Unity</h2>
+<p>You can download the Unity Hub here:</p>
+<blockquote>
+<p><a href="https://unity.com/download"
+class="uri">https://unity.com/download</a> (do not install the game
+engine yet)</p>
+</blockquote>
+<p>Note that you will need to download the Unity Hub and the Unity game
+engine. The Unity Hub is an application for accessing the Unity
+environment, and the game engine is used within it to build games. Unity
+is regularly updating its game engine. The version that you need is
+6000.0, which you can find here:</p>
+<blockquote>
+<p><a href="https://unity.com/releases/editor/whats-new/6000.0.65f1"
+class="uri">https://unity.com/releases/editor/whats-new/6000.0.65f1</a></p>
+</blockquote>
+<p>The download takes a considerable amount of hard drive space. Even if
+you are only planning to use Unity for EcoKnowGames projects, you will
+probably need about 15 GB of space on your hard drive.</p>
+</div>
+<div id="downloading-git" class="section level2">
+<h2>Downloading git</h2>
+<p>Next, we recommend downloading git (<a href="https://git-scm.com/"
+class="uri">https://git-scm.com/</a>). Git is version control software;
+it tracks changes to files over time and allows you to view the entire
+history of a folder and keep multiple versions of it. You do not need to
+know how git works to build a game with EcoKnowGames, but it does need
+to be installed on your computer. Git is free and open source, and it
+works for Windows, macOS, and Linux. You can download it here:</p>
+<blockquote>
+<p><a href="https://git-scm.com/install"
+class="uri">https://git-scm.com/install</a></p>
+</blockquote>
+<p>Git is a very useful tool for managing large projects (and not just
+code). The EcoKnowGames creator (and other tools in the EcoKnowGames
+project) use git, with files hosted on <a
+href="https://github.com">GitHub</a> (<a
+href="https://github.com/EcoKnowGames/creator"
+class="uri">https://github.com/EcoKnowGames/creator</a>).</p>
+</div>
+<div id="downloading-ecoknowgames-creator" class="section level2">
+<h2>Downloading EcoKnowGames creator</h2>
+<p>The EcoKnowGames creator works within Unity. You can download the
+creator here:</p>
+<blockquote>
+<p><a href="https://github.com/EcoKnowGames/creator/"
+class="uri">https://github.com/EcoKnowGames/creator/</a></p>
+</blockquote>
+<p>If you are familiar with GitHub, then the best approach here would be
+to fork or clone the repository. But you can also click the green button
+to open a pulldown menu, then choose ‘Download ZIP’. Extract the
+downloaded ZIP file and place the folder somewhere that you will be able
+to find it again.</p>
+<p>Once you have downloaded Unity, git, and the EcoKnowGames creator,
+you are ready to get started in Unity.</p>
+<hr />
+</div>
+</div>
+<div id="how-to-use-the-ecoknowgames-creator" class="section level1">
+<h1>2. How to use the EcoKnowGames creator</h1>
+<p>To get started, you need to open Unity. When you first open unity,
+you will be asked to create an account. Once you create an account, you
+can sign into Unity Hub. After agreeing to the Unity licence, Unity
+might recommend that you install the latest version of Unity; <strong>do
+not update</strong>. The EcoKnowGames creator only works with 6000.0, so
+you do not want to update to a more recent version. Skip the
+installation if you are prompted. You should see a panel on the left
+with options that include ‘Projects’ and ‘Installs’. Click on ‘Installs’
+first, then check to make sure that you have Unity 6000.0 LTS installed.
+Now is a good time to also add some build support options. Click the
+‘Manage’ pulldown on the right and choose ‘Add modules’. If not
+installed already, then install ‘Web Build Support’.</p>
+<p>Next, navigate to ‘Projects’ from the options to the left. This is
+how we get to the EcoKnowGames creator. In the upper right, click the
+‘Add’ pullown menu and choose ‘Add project from disk’. Find the
+EcoKnowGames folder that you downloaded, then click it and choose
+‘Open’. The new project should appear in your Projects list.</p>
+<hr />
+<div class="float">
+<img src="img/Unity_hub.png"
+alt="Figure 1: Screenshot of Unity Hub with EcoKnowGames creator tool listed under available projects." />
+<div class="figcaption">Figure 1: Screenshot of Unity Hub with
+EcoKnowGames creator tool listed under available projects.</div>
+</div>
+<hr />
+<p>To get started, click on the ‘creator’ project (it might take some
+time to open). When the creator opens, you will see a large developer
+environment with a lot of different panels. The game display is the most
+prominent in the centre, but you should also see folders on the bottom,
+all of which are in a folder called ’_EcoKnow’, which is within
+‘Assets’.</p>
+<hr />
+<div class="float">
+<img src="img/EcoKnowGames_assets.png"
+alt="Figure 2: Project tab in Unity with several subfolders inside a folder called ’_EcoKnow’, which is inside a folder called ‘Assets’." />
+<div class="figcaption">Figure 2: Project tab in Unity with several
+subfolders inside a folder called ’_EcoKnow’, which is inside a folder
+called ‘Assets’.</div>
+</div>
+<hr />
+<p>In the _EcoKnow folder, there are subfolders: Fonts, Maps, Matrices,
+Resources, Sandbox, Scenario Editor, and UI. You can safely ignore
+Fonts, Sandbox, and UI. The rest will be important for the workflow of
+game design:</p>
+<ul>
+<li><strong>Maps</strong> are where all of the game maps are stored as
+plain text CSV files.</li>
+<li><strong>Matrices</strong> define how different in-game entities
+(e.g., environmental resources or biological populations) interact with
+each other (more on this below), as stored in a plain text CSV
+file.</li>
+<li><strong>Resources</strong> stores game art (in the ‘Icons’ folder)
+and the final game files (in the ‘Scenarios’ folder).</li>
+<li><strong>Scenario Editor</strong> is where game mechanics are stored
+(e.g., win conditions, items, and generally how everything comes
+together to make a game).</li>
+</ul>
+<p>We will go through the contents of each of these subfolders in the
+order in which they become relevant during game-making. The starting
+place is the creation of a game matrix.</p>
+<div id="game-matrices" class="section level2">
+<h2>Game matrices</h2>
+<p>Every EcoKnowGames game is played on a map composed of discrete
+square tiles and discrete time steps (i.e., rounds). A game matrix tells
+us how one entity on a tile will affect the count of another entity on
+the same tile in the next time step. A concrete example will illustrate
+the idea. Consider a game where there are three entities: Hare, Fox, and
+Rock. Foxes eat hares, so all else being equal, adding a fox to a
+landscape tile will tend to decrease the number of hares on it. Foxes
+benefit from this interaction, so all else being equal, adding hares to
+a landscape tile will tend to increase the number of foxes on it. We
+will assume that rocks do not interact at all with hares or foxes. The
+game matrix for this system is shown in Table 1.</p>
+<table>
+<caption>EcoKnowGames matrix for setting up a game with a predator-prey
+relationship between hares and foxes, and rocks that are purely
+decorative.</caption>
+<thead>
+<tr class="header">
+<th>Hare</th>
+<th>Fox</th>
+<th>Rock</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-0.01</td>
+<td>-0.01</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0.04</td>
+<td>-0.01</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Each number in the table above tells us how the entity in a given
+column affects the entity in a row. For example, a hare (column 1)
+affects foxes (row 2) by increasing their numbers by a value of 0.04.
+All else being equal, if there are 100 hares on a landscape tile, then
+the number of foxes in the next time step will increase by 4. Similarly,
+the -0.01 in column 1 and row 2 indicates that if there are 100 foxes on
+a landscape tile, then the number of hares in the next time step will
+decrease by 1. Note that there is also a -0.01 in column 1 and row 1,
+and in column 2 and row 2. This models self-regulation, so if the number
+of hares or foxes on a landscape tile is high, then that number will
+tend to decrease in the next time step (e.g., due to overcrowding or
+competition for resources). In contrast, the zeros in row and column 3
+indicates that rocks are not affected by anything in the system,
+including themselves.</p>
+<p>The actual details are a bit more complicated because the change in
+entity number will also be affected by its intrinsic growth rate. More
+technically, games use generalised Lotka-Volterra equations to model
+entity dynamics, and game matrices are the interaction matrices used in
+these equations. We do not need to worry about these details yet (and
+there are other possibilities for entity dynamics). What matters for
+getting started is having a matrix with the format above (<a
+href="https://github.com/EcoKnowGames/creator/blob/main/Assets/_EcoKnow/Matrices/Hare%2C%20Fox%2C%20Rocks%20-%20Unstable.csv">see
+here</a> for the CSV file) and having some intuitive sense of how it
+works. The reason for making the underlying model so abstract is that
+this framework can be applied to a very wide range of complex system
+dynamics (i.e., not just predator-prey interactions, or even just
+biological interactions). To get started quickly, we can use the <a
+href="https://ecoknowgames.github.io/find_matrix/">find_matrix</a>
+application online to produce a stable random system:</p>
+<blockquote>
+<p><a href="https://ecoknowgames.github.io/find_matrix/"
+class="uri">https://ecoknowgames.github.io/find_matrix/</a></p>
+</blockquote>
+<p>Any set of entities generated with this application will be stable,
+in the sense that no entities will be driven extinct or exhibit endless
+growth. To use the application, set the number of entities that you want
+and click ‘Find Matrix’, then download the CSV and record the r and N
+values. You can rename the columns after downloading. To see how these
+entities change over time in the absence of any player intervention, you
+can use the <a
+href="https://ecoknowgames.github.io/simulate/">simulation
+application</a>:</p>
+<blockquote>
+<p><a href="https://ecoknowgames.github.io/simulate/"
+class="uri">https://ecoknowgames.github.io/simulate/</a></p>
+</blockquote>
+<p>Upload the CSV file to the application, then input the intrinsic
+growth rates (r values) and abundances (N values) in the panel on the
+left. You can leave the number of rounds, landscape dimension, and
+movement parameters as they are. When you click ‘run simulation’, the
+plot on the right should show all entities persisting at some finite
+abundance over time. For now, this is all that is needed to set up a
+game, so we can move on to setting up a game map.</p>
+</div>
+<div id="game-maps" class="section level2">
+<h2>Game maps</h2>
+<p>Creating a map is more user friendly than creating the interaction
+matrix. Making a map can be done with the <a
+href="https://ecoknowgames.github.io/map/">EcoKnow Map Editor</a>
+online:</p>
+<blockquote>
+<p><a href="https://ecoknowgames.github.io/map/"
+class="uri">https://ecoknowgames.github.io/map/</a></p>
+</blockquote>
+<p>To use the map editor, upload the interaction matrix CSV file from
+the previous section. Click ‘Reset View’ in the panel on the left to
+centre the map, and use W and H to change the size of the landscape.
+Scroll down in the left panel and choose ‘Terrain’ to add green terrain
+tiles. Terrain tiles will be playable in the game, while black tiles
+will be unplayable and empty (i.e., no entities can exist on them).</p>
+<p>After adding terrain tiles to achieve the desired shape of the
+landscape, you can add any number of entities to each tile. Click the
+entities in the left panel, then increase or decrease the number under
+‘Drawing Tools’ to choose the amount of each entity to put on a tile. To
+place the entities on a tile, simply click the tile. You can thereby
+distribute entities over the landscape however you choose, and this will
+be the distribution of entities at the start of a game. When you are
+finished, click ‘Downlaod Map.csv’ under ‘Export’ in the left panel. You
+are now ready to start building the actual game in Unity.</p>
+</div>
+<div id="scenario-editor" class="section level2">
+<h2>Scenario Editor</h2>
+<p>Recall the folders in the project tab from Figure 2. Before doing
+anything else, put your newly created matrix in the ‘Matrices’ folder,
+and put your newly created map in the ‘Maps’ folder. This will ensure
+that both are available in the Scenario Editor. You might need to reopen
+the EcoKnowGames creator project from the start of Step 2 if you have
+closed out of it (see above).</p>
+<p>From inside the creator, go to the bottom panel and find the
+‘Scenario Editor’ folder on the left. You might see some existing
+scenarios in the bottom middle. Right click somewhere here to bring up a
+pull-down menu (Figure 3).</p>
+<hr />
+<div class="float">
+<img src="img/Scenario_Editor.png"
+alt="Figure 3: Bottom panel of the EcoKnowGames Scenario Editor in Unity showing several scenarios. A pull-down window is shown where the cursor has been right-clicked in the centre." />
+<div class="figcaption">Figure 3: Bottom panel of the EcoKnowGames
+Scenario Editor in Unity showing several scenarios. A pull-down window
+is shown where the cursor has been right-clicked in the centre.</div>
+</div>
+<hr />
+<p>From the pull-down menu, navigate to ‘Create’, then ‘Scenario Node
+Graph’. This will bring up a new xNode to start building a game. The
+xNode interface allows you to organise the game options. Right click and
+hold to move around in xNode, and scroll to zoom in and out. We
+recommend maximising xNode to give yourself as much space as possible,
+then placing game options in the following order:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Scenario:</strong> The first thing to do in xNode is
+right click somewhere in the middle and select ‘Scenario’. A scenario
+box will pop up, which will allow you to specify the scenario name,
+author, total game rounds, actions that a player can take per round, and
+the amount currency a player has a the beginning of a game. You can also
+set a random seed value for the game, but this is not
+necessary.</p></li>
+<li><p><strong>Matrix</strong>: Right click to the left of the Scenario
+box and choose ‘Matrix’. A box titled ‘Matrix’ will appear. In this box,
+to the right of ‘Matrices CSV’, you will see ‘None’, then a small circle
+on the far right. Click on this small circle to open a list of available
+CSV matrix files. Find the one that you made and select it; entities
+will automatically be filled in below. Lastly, click and hold on the red
+circle on the right of the Matrix box, then drag a line to the red dot
+called ‘Matrix’ in the Scenario box. The entities will then appear in
+circles on the right side of the Scenario box.</p></li>
+<li><p><strong>Map</strong>: Right click again to the left of the
+Scenario box and choose ‘Map’. A box titled ‘Map’ will appear. Click and
+hold the yellow circle on the right side of the Map box, then drag a
+line to the yellow dot called ‘Map’ in the Scenario box.</p></li>
+<li><p><strong>Entities</strong>: On the right side of the scenario box,
+right click and choose ‘Entity’. On the Scenario box, click and hold the
+‘Hare’ circle, then drag a line to the circle on the left side of the
+new Entity box. On the right side of the new Entity box, there will be a
+right arrow followed by a set of ellipses (…). Click on the arrow to see
+the options for this entity. You should be able to edit the information
+here, including the icon, colour, growth rate, movement rate (i.e.,
+probability of moving to an adjacent tile), densities of vulnerability
+and abundance, and the ability to harvest or introduce. But note that if
+this is not working for any reason, you can also close out xNode and
+edit this information directly in the Scenario Editor on Unity (see
+Figure 4). You can do this for any box that you place in xNode (note
+that when you attempt to select an icon, options appear from the
+Resources &gt; Icons folder; you can place custom icons here to appear
+in the game). Repeat this process for all of the entities so that every
+entity is connected to the Scenario box.</p></li>
+</ol>
+<hr />
+<div class="float">
+<img src="img/entity_edit.png"
+alt="Figure 4: Unity Scenario Editor is open. By clicking the ‘Entity’ icon in the bottom middle panel, options for modifying the entity are available in the panel on the right. To return to xNode, you can click the ‘Edit graph’ button in the right panel." />
+<div class="figcaption">Figure 4: Unity Scenario Editor is open. By
+clicking the ‘Entity’ icon in the bottom middle panel, options for
+modifying the entity are available in the panel on the right. To return
+to xNode, you can click the ‘Edit graph’ button in the right
+panel.</div>
+</div>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><p><strong>Items:</strong> Items are things that players get from
+harvesting entities. Items can be potentially sold for currency or used
+to introduce other entities. For example, we might create a new item
+called ‘hare meat’ with a value of 2 currency. To create an item, right
+click to the left of the Scenario box and choose ‘item’. Drag the grey
+circle on the right side of the newly created Item box to the ‘Items’
+circle on the left side of the Scenario box. You will need to name the
+item and ideally give it an icon. You can connect as many items as you
+want to the Scenario box.</p></li>
+<li><p><strong>Item Quantity:</strong> To make sure that you get items
+from harvesting an entity, right click somewhere and choose ‘Item
+Quantity’. Choose the item that you want from the pull-down in the Item
+Quantity box (e.g., ‘Hare meat’), then connect the blue ‘Quantity’
+circle on the right to the ‘Harvest Quantity’ circle of an entity (see
+Figure 5).</p></li>
+<li><p><strong>Currency Quantity:</strong> To specify an amount of
+currency needed to introduce one entity to a tile, right click somewhere
+and choose ‘Currency Quantity’. Specify a quantity in the box, then link
+the blue ‘Quantity’ circle to the blue ‘Introduce Quantity’ of an
+entity. Note that you can also link Item Quantity boxes to this
+‘Introduce Quantity’ circle if you want introducing an entity to cost a
+specific number of items (or any combination of items and
+currency).</p></li>
+<li><p><strong>Win Conditions:</strong> Lastly, you need to specify what
+the win conditions are for the game. Win conditions are defined by
+keeping the total number of one or more entities within a specific range
+for a given number of rounds. For example, we might want to keep the
+total hare population between 100 and 2000 for 4 rounds (Figure
+5).</p></li>
+</ol>
+<hr />
+<div class="float">
+<img src="img/xNode_eg.png"
+alt="Figure 5: The xNode interface for using the EcoKnowGame creator tool. A simple game of three entities (hares, foxes, and rocks) is shown. The game will be played over 12 rounds with 4 actions per turn, and players start with a currency of 100. Players can harvest hares to get 4 hare meat items, which can be sold at a value of 2 currency each. Hares can be introduced to landscape tiles for 10 currency, and foxes can be introduced for 20 currency and 1 hare meat item. Players can win the game by keeping the total hare population between 100 and 2000 for 4 rounds." />
+<div class="figcaption">Figure 5: The xNode interface for using the
+EcoKnowGame creator tool. A simple game of three entities (hares, foxes,
+and rocks) is shown. The game will be played over 12 rounds with 4
+actions per turn, and players start with a currency of 100. Players can
+harvest hares to get 4 hare meat items, which can be sold at a value of
+2 currency each. Hares can be introduced to landscape tiles for 10
+currency, and foxes can be introduced for 20 currency and 1 hare meat
+item. Players can win the game by keeping the total hare population
+between 100 and 2000 for 4 rounds.</div>
+</div>
+<hr />
+<p>Once you have your game set up, you need to export it as a JSON file
+and place it in the Resources &gt; Scenarios folder. There are two ways
+to do this. First, from within xNode, you can right click and choose the
+‘Export JSON’ option. Second, you can go back to the Scenario Editor
+(i.e., bottom middle panel in Figure 4), then click on the Scenario icon
+(‘New Scena…’ in Figure 4). In the upper right of the right panel, you
+will see vertical elipses (Figure 6, upper right). Click these and
+select ‘Export JSON’ from the pull-down menu. A pop up box will appear
+letting you know where the JSON file has been saved (it might not be
+where you expect, so look at the file path carefully).</p>
+<hr />
+<div class="float">
+<img src="img/save_JSON.png"
+alt="Figure 6: Part of the right panel of the Unity EcoKnowGames creator after clicking the ‘New Scenario’ icon in the Scenario Editor. To export a game as a JSON file, click the vertical ellipses in the upper right corner and choose ‘Export JSON’." />
+<div class="figcaption">Figure 6: Part of the right panel of the Unity
+EcoKnowGames creator after clicking the ‘New Scenario’ icon in the
+Scenario Editor. To export a game as a JSON file, click the vertical
+ellipses in the upper right corner and choose ‘Export JSON’.</div>
+</div>
+<hr />
+<p>The last thing to do is find your exported JSON file and move it into
+your Resources &gt; Scenarios files in Unity. Figure 7 shows an uploaded
+JSON file ‘New Scenario.json’ highlighted.</p>
+<hr />
+<div class="float">
+<img src="img/new_scenario.png" alt="Figure 7:" />
+<div class="figcaption">Figure 7:</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
