@@ -83,9 +83,7 @@ Once you have downloaded Unity, git, and the EcoKnowGames creator, you are ready
 This is the longest step, and it is explained in writing below.
 You can also watch the video immediately below to see the full work flow of creating a game.
 
-[![Video guide to using EcoKnowGame software to make a game for research]
-(https://img.youtube.com/vi/IcMJZeZKJ6E/maxresdefault.jpg)]
-(https://www.youtube.com/watch?v=IcMJZeZKJ6E)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IcMJZeZKJ6E" frameborder="0" allowfullscreen></iframe>
 
 To get started, you need to open Unity.
 When you first open unity, you will be asked to create an account.
@@ -355,12 +353,21 @@ At the bottom of this box, there is an option to visualise a graph of the total 
 
 ********************************************************************************
 
+Players can click on the 'Export results' button to save the entire history of their game as a JSON file.
+This active process whereby the player saves the data themselves is aligned with the ethical approach of EcoKnowGames.
+Rather than asking for permission for data to be collected prior to game play, the EcoKnowGames approach instead allows players to control the data that they generate and opt to give it to the researcher directly.
+Future work will build an R shiny application and R package for converting the game JSON file into a tidy CSV file ready for data analysis.
 
 
+Conclusions
+=============================
 
+You should now be able to build a knowledge game using the EcoKnowGames creator and deploy it to players to collect data.
+These instructions only focused on getting started with the technical aspects of game design with the EcoKnowGames creator.
+To create an engaging game that is aligned with research goals, careful planning is needed.
+This planning might involve other researchers and stakeholders, and will likely require a lot of trial and error to fine tune different elements of the game.
 
-
-
+For any questions or suggestions, please see the [Discussion board](https://github.com/orgs/EcoKnowGames/discussions) for the EcoKnowGames project, or [contact us](https://ecoknowgames.github.io/contact.html) by email or social media.
 
 
 
