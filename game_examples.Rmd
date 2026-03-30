@@ -6,10 +6,23 @@ output:
 ---
 
 Here is a showcase of games that have been produced with the [EcoKnowGames Creator](https://github.com/EcoKnowGames/creator) tool.
+This will be a paragraph giving some context to the games, talking about the integration of scientific models, and briefly explaining their common features.
+Below are a suite of games that will include links very soon.
 
+
+Conservation management
+==============================
+
+Conservation games (Play here) are games that focus on achieving conservation goals in situations of limited resources and conservation conflict.
 
 
 Chesapeake Play!
 ===============================
 
 Chesapeake Play! (Play here) is a game about managing blue crabs in the Chesapeake bay.
+
+
+Copper Tailings Rehabilitation
+===============================
+
+Copper Tailings Rehabilitation (Play here) focuses on restoration of heavy metal contaminated land.
