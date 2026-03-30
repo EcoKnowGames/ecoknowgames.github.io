@@ -1,0 +1,15 @@
+---
+title: "Game examples"
+output:
+  html_document:
+    df_print: paged
+---
+
+Here is a showcase of games that have been produced with the [EcoKnowGames Creator](https://github.com/EcoKnowGames/creator) tool.
+
+
+
+Chesapeake Play!
+===============================
+
+Chesapeake Play! (Play here) is a game about managing blue crabs in the Chesapeake bay.

@@ -4,8 +4,10 @@ navbar:
   left:
     - text: "About"
       href: index.html
-    - text: "News"
-      href: news.html
+    - text: "How-to"
+      href: how_to.html
+    - text: "Games"
+      href: game_examples.html    
     - text: "People"
       href: people.html
     - text: "Contact"
