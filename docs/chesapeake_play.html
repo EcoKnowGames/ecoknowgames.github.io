@@ -11,7 +11,7 @@
 
 
 
-<title>Game examples</title>
+<title>Chesapeake Play!</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -59,6 +59,29 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -275,22 +298,31 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Game examples</h1>
+<h1 class="title toc-ignore">Chesapeake Play!</h1>
 
 </div>
 
 
-<p>Here is a showcase of games that have been produced with the <a
-href="https://github.com/EcoKnowGames/creator">EcoKnowGames Creator</a>
-tool.</p>
 <hr />
-<div id="chesapeake-play-click-here-to-play" class="section level1">
-<h1>Chesapeake Play! (<a href="chesapeake_play.html">Click here to
-play</a>)</h1>
-<p>Chesapeake Play! is a game about Maryland’s blue crab management
-system. Players take on the role of fisherman (locally known as
-watermen) where players must balance the need to earn a living with the
-responsibility of maintaining a sustainable blue crab population.</p>
+<p><strong>Chesapeake Play! is a game about Maryland’s blue crab
+management system. Players take on the role of fisherman (locally known
+as watermen) where players must balance the need to earn a living with
+the responsibility of maintaining a sustainable blue crab
+population.</strong></p>
+<hr />
+<blockquote>
+<p><a href="https://ecoknowgames.github.io/bluecrabs/">Play the
+game!</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#instructions">Game instructions</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#science">The science</a></p>
+</blockquote>
+<hr />
+<div id="game-instructions" class="section level1">
+<h1><a id="instructions">Game instructions</a></h1>
 <p>Throughout the game, players face trade-offs: investing in legal crab
 pots that ensure regulatory compliance but come at a higher cost, or
 take a risk with cheaper illegal pots to maximise short-term profit.
@@ -300,20 +332,151 @@ their illegal and legal pots.</p>
 <p>Success in game depends on strategically balancing risk and reward
 while managing blue crab resources responsibly to sustain livelihood and
 the Chesapeake Bay ecosystem.</p>
+<div id="role" class="section level2">
+<h2><strong>Role</strong></h2>
+<p>Take on the role of a waterman in the Chesapeake Bay.</p>
+</div>
+<div id="goals" class="section level2">
+<h2><strong>Goals</strong></h2>
+<ul>
+<li>Earn 200,000 within 8 game rounds</li>
+<li>Maintain a blue crab population above 20,000 for at least 6
+rounds</li>
+</ul>
+</div>
+<div id="getting-started" class="section level2">
+<h2><strong>Getting started</strong></h2>
+<p>Click ‘Play’ at the start of the game and select Level 1 to get
+started. Choose ‘Single Player’ and set your name, then click ‘Start
+game’. The Chesapeake Bay map will open up, with tiles showing the
+locations of crabs at various life stages (megalopae, small, large, and
+adult), and patrol boats. You begin the game with 12,000 in currency,
+and you can use this money to buy:</p>
+<ul>
+<li>Legal crab pots (more expensive, but no risk)</li>
+<li>Illegal crab pots (cheaper, but risky to use)</li>
+</ul>
+<p>Legal crab pots only catch large and adult crabs, while illegal crab
+pots catch all life history stages.</p>
+<hr />
+<div class="float">
+<img src="img/legal_pot.png" alt="Legal crab pot" />
+<div class="figcaption">Legal crab pot</div>
+</div>
+<hr />
+<div class="float">
+<img src="img/illegal_pot.png" alt="Illegal crab pot" />
+<div class="figcaption">Illegal crab pot</div>
+</div>
+<hr />
+<p>Boats patrol the Chesapeake Bay waters, and if they find an illegal
+pot on a map tile, then they will destroy all legal and illegal pots on
+the tile, and confiscate any crab catch.</p>
+</div>
+<div id="game-play-during-rounds" class="section level2">
+<h2><strong>Game play during rounds</strong></h2>
+<p>Each round, you can buy new crab pots, then place them on the map to
+catch crabs. To do this, go to the menu on the right and click on one of
+the crab pot icons (purple for legal pots and dark green for illegal
+pots). Click ‘Introduce’ to set the pots down. You can select the tiles
+where you want to introduce the pots and place as many as you can afford
+on any map tiles. Click ‘Next Round’ to end the round. After you end the
+round, your pots will begin to catch crabs, increasing your crab catch
+on each tile. Note that the crabs will move around and reproduce between
+rounds!</p>
+</div>
+<div id="harvesting-and-selling" class="section level2">
+<h2><strong>Harvesting and selling</strong></h2>
+<p>After putting down crab pots, you will start to see some crab catch
+on game tiles. To harvest crabs, select the pink ‘Catch’ icon on the
+right of your screen. From the pulldown menu, select ‘Harvest’. A popup
+screen will appear, and you can select ‘Harvest’ again in this popup.
+You can select the tiles you want to harvest, or you ‘Select All Tiles’
+from the pulldown menu if you want to harvest all of your catch (to do
+this quickly, select all tiles, then harvest 100% of the catch).</p>
+<p>To sell your catch, click the ‘Inventory’ button on the left side of
+the screen. You should see some Crab bushels in your inventory.</p>
+<hr />
+<div class="float">
+<img src="img/crab_meat.png" alt="Crab meat" />
+<div class="figcaption">Crab meat</div>
+</div>
+<hr />
+<p>You can sell as many units as you have available to accrue more
+money, which can then be reinvested into more crab pots.</p>
+</div>
+<div id="game-progression" class="section level2">
+<h2><strong>Game progression</strong></h2>
+<p>Your money and total crab population size are shown in the top right
+corner of the screen. These numbers are updated every round. At any
+time, you can click the plot icon on the right side of the screen to
+track the crab population over time. This population changes as
+predicted by the underlying scientific models.</p>
 <hr />
 </div>
-<div id="conservation-management-coming-soon" class="section level1">
-<h1>Conservation management (coming soon)</h1>
-<p>Conservation games are games that focus on achieving conservation
-goals in situations of limited resources and conservation conflict.</p>
-<hr />
 </div>
-<div id="copper-tailings-rehabilitation-coming-soon"
-class="section level1">
-<h1>Copper Tailings Rehabilitation (coming soon)</h1>
-<p>Copper Tailings Rehabilitation focuses on restoration of heavy metal
-contaminated land.</p>
+<div id="the-science" class="section level1">
+<h1><a id="science">The science</a></h1>
+<p>This game uses a real-world model of how crab populations change over
+time. It models the probability of individual survival, transition to
+the next life history stage, and reproduction. Details of the life cycle
+are parameterised using the modelling work of <span
+class="citation">Miller (2001)</span> and <span class="citation">Miller
+(2003)</span> <span class="citation">Miller (2001)</span> used data
+collected from the blue crab population and worked out life cycle
+(Figure 1).</p>
 <hr />
+<div class="float">
+<img src="img/bluecrab_lifecycle.png"
+alt="Figure 1: Blue crab life cycle." />
+<div class="figcaption">Figure 1: Blue crab life cycle.</div>
+</div>
+<hr />
+<p>In this population, arrows moving from left to right show
+probabilities of transitioning from one stage to the next, or surviving
+as an adult crab. Arrows moving right to left show reproduction (only
+large and adult crabs can reproduce). Mathematically, all of this is
+represented using a Leslie matrix,</p>
+<p><span class="math display">\[\mathbf{A} = \begin{bmatrix}
+0 &amp; 0 &amp; 0.664258 &amp; 1.005550 \\
+0.512401 &amp; 0 &amp; 0 &amp; 0 \\
+0.102796 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0.687241 &amp; 0.687241 &amp; 0.687241
+\end{bmatrix}.\]</span></p>
+<p>In the game, we apply the above mathematics derived from <span
+class="citation">Miller (2001)</span> to model how the blue crab
+population will grow in the absence of any fishing. If we do not
+intervene in the game by putting down crab pots, the population will
+grow with stable stage classes. Figure 2 below shows how the population
+will grow for each life stage.</p>
+<hr />
+<div class="float">
+<img src="img/blue_crabs.png"
+alt="Figure 2: Blue crab population change over time." />
+<div class="figcaption">Figure 2: Blue crab population change over
+time.</div>
+</div>
+<hr />
+<p>By playing this game, you are interacting with a real scientific
+model of the blue crab population in the Chesapeake Bay. Your decisions
+concerning how much to fish and when mirror the real-life
+decision-making involved in managing blue crabs.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+<div id="ref-Miller2001" class="csl-entry">
+Miller, Thomas J. 2001. <span>“Matrix-Based Modeling of Blue Crab
+Population Dynamics with Applications to the Chesapeake Bay.”</span>
+<em>Estuaries</em> 24 (4): 535–44.
+</div>
+<div id="ref-Miller2003" class="csl-entry">
+———. 2003. <span>“Incorporating Space into Models of the Chesapeake Bay
+Blue Crab Population.”</span> <em>Bulletin of Marine Science</em> 72
+(2): 567–88.
+</div>
+</div>
 </div>
 
 

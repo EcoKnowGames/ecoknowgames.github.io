@@ -6,31 +6,39 @@ output:
 ---
 
 Here is a showcase of games that have been produced with the [EcoKnowGames Creator](https://github.com/EcoKnowGames/creator) tool.
-This will be a paragraph giving some context to the games, talking about the integration of scientific models, and briefly explaining their common features.
-Below are a suite of games that will include links very soon.
-
-*************************************************
-
-Conservation management
-==============================
-
-Conservation games (Play here) are games that focus on achieving conservation goals in situations of limited resources and conservation conflict.
 
 
 *************************************************
 
-Chesapeake Play!
+Chesapeake Play! ([Click here to play](chesapeake_play.html))
 ===============================
 
-Chesapeake Play! (Play here) is a game about managing blue crabs in the Chesapeake bay.
+Chesapeake Play! is a game about Maryland's blue crab management system. Players take on the role of fisherman (locally known as watermen) where players must balance the need to earn a living with the responsibility of maintaining a sustainable blue crab population.  
+
+Throughout the game, players face trade-offs: investing in legal crab pots that ensure regulatory compliance but come at a higher cost, or take a risk with cheaper illegal pots to maximise short-term profit. However, this can have consequences, in which patrol boats may appear, and if players are caught using illegal pots, they risk losing both their illegal and legal pots.  
+
+Success in game depends on strategically balancing risk and reward while managing blue crab resources responsibly to sustain livelihood and the Chesapeake Bay ecosystem.  
 
 
 *************************************************
 
-Copper Tailings Rehabilitation
+Conservation management (coming soon)
 ===============================
 
-Copper Tailings Rehabilitation (Play here) focuses on restoration of heavy metal contaminated land.
-
+Conservation games are games that focus on achieving conservation goals in situations of limited resources and conservation conflict.
 
 *************************************************
+
+Copper Tailings Rehabilitation (coming soon)
+===============================
+
+Copper Tailings Rehabilitation focuses on restoration of heavy metal contaminated land.
+
+*************************************************
+
+
+
+
+
+
+
