@@ -115,8 +115,8 @@ This population changes as predicted by the underlying scientific models.
 
 This game uses a real-world model of how crab populations change over time.
 It models the probability of individual survival, transition to the next life history stage, and reproduction.
-Details of the life cycle are parameterised using the modelling work of @Miller2001 and @Miller2003
-@Miller2001 used data collected from the blue crab population and worked out life cycle (Figure 1).
+Details of the life cycle are parameterised using the modelling work of @Miller2001 and @Miller2003.
+@Miller2001 used data collected from the blue crab population and worked out the life cycle (Figure 1).
 
 ********************************************************************************
 
@@ -124,7 +124,7 @@ Details of the life cycle are parameterised using the modelling work of @Miller2
 
 ********************************************************************************
 
-In this population, arrows moving from left to right show probabilities of transitioning from one stage to the next, or surviving as an adult crab.
+In this population, arrows moving from left to right show probabilities of transitioning from one stage to the next, or surviving as an adult crab, between years.
 Arrows moving right to left show reproduction (only large and adult crabs can reproduce).
 Mathematically, all of this is represented using a Leslie matrix,
 
@@ -160,6 +160,7 @@ A_mat       <- summer %*% winter;
 By playing this game, you are interacting with a real scientific model of the blue crab population in the Chesapeake Bay.
 Your decisions concerning how much to fish and when mirror the real-life decision-making involved in managing blue crabs.
 
+********************************************************************************
 
 References
 ================================================================================
