@@ -4,10 +4,12 @@ navbar:
   left:
     - text: "About"
       href: index.html
+    - text: "Creator"
+      href: https://ecoknowgames.github.io/briefings/
     - text: "How-to"
       href: how_to.html
-    - text: "Games"
-      href: game_examples.html    
+    - text: "Play!"
+      href: https://ecoknowgames.github.io/briefings/play
     - text: "People"
       href: people.html
     - text: "Contact"
