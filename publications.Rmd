@@ -1,0 +1,12 @@
+---
+title: "Publications"
+output:
+  html_document:
+    df_print: paged
+---
+
+<ol reversed>
+
+<li>Pan, Y, AB Duthie, IL Jones, D Patel, and N Bunnefeld. 2026. Insights for conservation from the Ecological Knowledge Games project. *Conservation Biology*. e70308 [10.1111/cobi.70308](https://doi.org/10.1111/cobi.70308) [[PDF](https://bradduthie.github.io/ms/PanEtAl2026.pdf)]
+
+

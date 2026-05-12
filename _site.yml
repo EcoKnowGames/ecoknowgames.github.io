@@ -12,6 +12,8 @@ navbar:
       href: https://ecoknowgames.github.io/briefings/play
     - text: "People"
       href: people.html
+    - text: "Publications"
+      href: publications.html
     - text: "Contact"
       href: contact.html
     - text: "GitHub"
